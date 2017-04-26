@@ -16,23 +16,21 @@ namespace PrimeFactors
 
 		static bool findPrime(int number)
 		{
-			int k = 1;
-
-			for(int i = 1; i <= (number / 2); i = i +2)
-			{
-				if (number % i == 0)
-				{
-					k++;
-				}
-			}
-			if (k == 2)
-			{
-				return true;
-			}
-			else
+			if(number <= 0)
 			{
 				return false;
 			}
+			
+			int sqrt = (int)Math.Sqrt(number);
+		
+			for(int i = 1; i <= sqrt; i++)
+			{
+				if(number % i == 0 && i != 1 && i != number)
+				{
+					return false;
+				}
+			}
+			return true;
 		}
 	}
 }
